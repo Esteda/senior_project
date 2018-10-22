@@ -1,0 +1,71 @@
+.div{
+    background-color: white;
+    width: 50vh;
+    height: 70vh;
+    opacity: 0.85;
+    left: 65vh;
+    top: 5vh;
+    border-radius: 10px;
+    padding: 60px 0;
+    position: absolute;
+}
+
+.overlay:hover{
+    position:absolute;
+    background-color: white;
+    height: 100%;
+    animation-name: overlayColor;
+    animation-duration: 2.5s;
+}
+
+.overlay:hover .topper{
+    display: block;
+}
+
+.overlay:hover .text:after{
+    content: "or Sign Up?";
+}
+
+@keyframes overlayColor {
+    from {background-color: #ffda09;}
+    to {background-color: white;}
+}
+
+.overlay{
+    position: absolute;
+    bottom: 0;
+    left:0;
+    right:0;
+    opacity:0.95;
+    background-color: #ffda09;
+    overflow: hidden;
+    width: 50vh;
+    height: 7vh;
+    border-radius: 10px;
+    transition: 1.5s ease;
+    z-index: 1;
+}
+
+.text{
+    margin-top: 2vh;
+    font-size: 20px;
+    text-align: center;
+}
+
+.text:after{
+    content:"or Log In?";
+}
+
+.temp{
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+}
+
+.topper{
+    display: none;
+    transition-duration: 3s;
+}

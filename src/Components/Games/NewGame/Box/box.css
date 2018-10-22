@@ -1,0 +1,54 @@
+.found{
+    position: relative;
+    margin-top:28vh;
+    height: 40vh;
+    width: 50vh;
+    z-index: -3;
+}
+
+.back{
+    width: 40vh;
+    height: 30vh;
+    z-index: -1;
+    position: absolute;
+    background-color: white;
+    margin-left: 5vh;
+    margin-top: 10vh;
+    opacity: 0.5;
+}
+
+.base{
+    position: absolute;
+    width: 50vh;
+    height: 35vh;
+    margin-top: -15vh;
+    z-index: -2;
+    background-color: #c8c800;
+    border-color: white;
+    border-width: 3px;
+    border-style: solid;
+}
+
+.icon{
+    position: relative;
+    margin-left: 15vh;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: white;
+    border-width: 5px;
+    width: 20vh;
+    height: 20vh;
+    z-index: 2;
+}
+
+.button{
+    position: absolute;
+    width: 35vh;
+    background-color: green;
+    height: 10vh;
+    margin-left: 7.5vh;
+    margin-top: 7vh;
+    font-size: 40px;
+    font-family: Bodoni MT Black;
+    z-index: 2;
+}
