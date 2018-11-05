@@ -6,7 +6,7 @@ const Box =()=>{
     return(
         <div className={classes.found}>
             <div className={classes.back}></div>
-            <div className={classes.content}>
+            <div>
                 <img className={classes.icon} src={icon}/>
             </div>
             <div className={classes.base}>

@@ -1,7 +1,7 @@
 .div{
     background-color: white;
     width: 50vh;
-    height: 70vh;
+    height: 80vh;
     opacity: 0.85;
     left: 65vh;
     top: 5vh;
@@ -10,19 +10,28 @@
     position: absolute;
 }
 
-.overlay:hover{
-    position:absolute;
+.overlayV{
+    position: absolute;
+    bottom: 0;
+    left:0;
+    right:0;
+    opacity:0.95;
+    overflow: hidden;
+    width: 50vh;
+    border-radius: 10px;
+    transition: 1.5s ease;
+    z-index: 1;
     background-color: white;
     height: 100%;
     animation-name: overlayColor;
     animation-duration: 2.5s;
 }
 
-.overlay:hover .topper{
+.overlayV .topper{
     display: block;
 }
 
-.overlay:hover .text:after{
+.overlayV .text:after{
     content: "or Sign Up?";
 }
 
@@ -54,6 +63,16 @@
 
 .text:after{
     content:"or Log In?";
+}
+
+.textV{
+    margin-top: 2vh;
+    font-size: 20px;
+    text-align: center;
+}
+
+.textV:after{
+    content:"or Sign Up?";
 }
 
 .temp{

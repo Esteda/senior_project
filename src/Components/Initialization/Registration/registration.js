@@ -7,6 +7,7 @@ import {
 // import LoaderButton from "../components/LoaderButton";
 import classes from "./registration.css";
 import Login from "../Login/login";
+import axios from "axios/index";
 
 class Registration extends Component {
     constructor(props) {
@@ -14,29 +15,30 @@ class Registration extends Component {
 
         this.state = {
             isLoading: false,
-            username: "",
-            firstName: "",
-            secondName: "",
-            email: "",
-            password: "",
-            confirmPassword: "",
+            username: "test",
+            name: "test",
+            second_name: "test",
+            email: "test@mail.ru",
+            password: "test",
+            password2: "test",
             confirmationCode: "",
             newUser: null,
-            id: ""
+            university_id: "1"
         };
     }
 
     validateForm() {
         return (
             this.state.username.length > 0 &&
-            this.state.firstName.length > 0 &&
-            this.state.secondName.length > 0 &&
-            this.state.id.length > 0 &&
+            this.state.name.length > 0 &&
+            this.state.second_name.length > 0 &&
+            this.state.university_id.length > 0 &&
             this.state.email.length > 0 &&
             this.state.password.length > 0 &&
-            this.state.password === this.state.confirmPassword
+            this.state.password === this.state.password2
         );
     }
+
 
     handleChange = event => {
         this.setState({
@@ -44,17 +46,34 @@ class Registration extends Component {
         });
     }
 
-    // handleSubmit = async event => {
-    //     event.preventDefault();
-    //
-    //     this.setState({ isLoading: true }, {newUser: "test"});
-    //
-    //     this.setState({ isLoading: false });
-    // }
+    handleSubmit =(event)=>{
+        if(this.validateForm()){
+            console.log("TRUE")
+        }
+        else{
+            console.log("FALSE")
+        }
+        event.preventDefault();
+        console.log("clicked")
+        var dataForm = {
+            "email": this.state.email,
+            "name": this.state.name,
+            "second_name": this.state.second_name,
+            "university_id": this.state.university_id,
+            "username": this.state.username,
+            "password": this.state.password,
+            "password2": this.state.password2
+        }
+        axios({
+            method: "post",
+            url: '/user/register',
+            data: dataForm
+        }).then(res=>{console.log(res)})
+    }
 
     renderForm() {
         return (
-            <form className={classes.Signup}>
+            <form className={classes.signup} onSubmit={this.handleSubmit.bind(this)}>
                 <FormGroup controlId="username" bsSize="large" className={classes.label}>
                     <ControlLabel>Username</ControlLabel>
                     <br/>
@@ -66,33 +85,33 @@ class Registration extends Component {
                         onChange={this.handleChange}
                     />
                 </FormGroup>
-                <FormGroup controlId="firstName" bsSize="large" className={classes.label}>
+                <FormGroup controlId="name" bsSize="large" className={classes.label}>
                     <ControlLabel>First name</ControlLabel>
                     <br/>
                     <FormControl
                         placeholder="First Name"
                         type="username"
-                        value={this.state.firstName}
+                        value={this.state.name}
                         onChange={this.handleChange}
                     />
                 </FormGroup>
-                <FormGroup controlId="secondName" bsSize="large" className={classes.label}>
+                <FormGroup controlId="second_name" bsSize="large" className={classes.label}>
                     <ControlLabel>Second Name</ControlLabel>
                     <br/>
                     <FormControl
                         placeholder="Second Name"
                         type="secondName"
-                        value={this.state.secondName}
+                        value={this.state.second_name}
                         onChange={this.handleChange}
                     />
                 </FormGroup>
-                <FormGroup controlId="id" bsSize="large" className={classes.label}>
+                <FormGroup controlId="university_id" bsSize="large" className={classes.label}>
                     <ControlLabel>ID</ControlLabel>
                     <br/>
                     <FormControl
                         placeholder="Personal ID"
                         type="id"
-                        value={this.state.id}
+                        value={this.state.university_id}
                         onChange={this.handleChange}
                     />
                 </FormGroup>
@@ -116,12 +135,12 @@ class Registration extends Component {
                         type="password"
                     />
                 </FormGroup>
-                <FormGroup controlId="confirmPassword" bsSize="large" className={classes.label}>
+                <FormGroup controlId="password2" bsSize="large" className={classes.label}>
                     <ControlLabel>Confirm Password</ControlLabel>
                     <br/>
                     <FormControl
                         placeholder="Confirm Password"
-                        value={this.state.confirmPassword}
+                        value={this.state.password2}
                         onChange={this.handleChange}
                         type="password"
                     />

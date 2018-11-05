@@ -1,0 +1,37 @@
+.main{
+    margin:auto;
+    width: 60%;
+    height: 100vh;
+    background-color: #ffe5aa;
+    border-radius: 5px;
+}
+
+.bot{
+    background-color: yellow;
+}
+
+.avatar {
+    display: inline-block;
+    width: 20vh;
+    height: 20vh;
+    background-color: white;
+    margin-top: 0vh;
+    margin-left: 5vh;
+    border-radius: 20px;
+}
+
+.image{
+    width: 20vh;
+    height: 20vh;
+    border-radius: 50%;
+}
+
+.info{
+    position:relative;
+    display: inline-block;
+    border-radius: 30px;
+    margin-top: 5vh;
+    width: 70%;
+    height: 100vh;
+    background-color: green;
+}
